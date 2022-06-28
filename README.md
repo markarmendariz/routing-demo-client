@@ -11,3 +11,6 @@ pip install requests
 ## To run the routing-demo-client:
 python3 routing-client.py
 
+## Note:
+Make sure https://github.com/markarmendariz/routing-demo is running before running routing-client
+
