@@ -41,6 +41,7 @@ with open(sys.argv[2], mode='r') as drivers_file:
 
 print(driver_list)
 
+# Determine if we have more streets to deliver to than drivers
 street_length = len(street_list)
 driver_length = len(driver_list)
 if street_length > driver_length:
@@ -58,7 +59,7 @@ for i in range(list_length):
         resp = requests.get(url = URL, params = PARAMS)
         data = resp.json()
 
-        print(f'Street {street_list[i]} and Driver {driver_list[j]} has a SS of {data["score"]}')
+        print(f'Street: {street_list[i]} and Driver: {driver_list[j]} has a SS of: {data["score"]}')
 
 
 
