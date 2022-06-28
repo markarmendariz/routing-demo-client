@@ -49,6 +49,7 @@ if street_length > driver_length:
 else:
     list_length = street_length
 
+# Determine the suitability score for each street per driver
 for i in range(list_length):
     for j in range(list_length):
         PARAMS = {
@@ -60,6 +61,14 @@ for i in range(list_length):
         data = resp.json()
 
         print(f'Street: {street_list[i]} and Driver: {driver_list[j]} has a SS of: {data["score"]}')
+
+'''
+TODO:
+Now that there is a suitability score for each street per driver the next step is to determine the combitionation of suitability scores
+when added together gives highess total score so as to maximize the total score over the set of drivers adhering to the rule that each
+driver can have only one shipment and each shipment can can only be assiged to one driver. Unfortunately I ran out of time to implement
+this part.
+'''
 
 
 
