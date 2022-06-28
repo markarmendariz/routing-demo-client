@@ -5,7 +5,7 @@ Python client for routing-demo
 - Python3
 - requests module
 
-## If the requests module is not installed then run below pip command:
+## If the requests module is not installed then run the below pip command:
 pip install requests
 
 ## To run the routing-demo-client:
