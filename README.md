@@ -9,7 +9,7 @@ Python client for routing-demo
 pip install requests
 
 ## To run the routing-demo-client:
-python3 routing-client.py
+python3 routing-client.py address.txt drivers.txt
 
 ## Note:
 Make sure https://github.com/markarmendariz/routing-demo is running before running routing-client
