@@ -43,6 +43,7 @@ print(driver_list)
 
 # Determine the suitability score for each street per driver
 for i in range(len(street_list)):
+    total_score = 0
     for j in range(len(driver_list)):
         PARAMS = {
             'street' :street_list[i],
@@ -53,6 +54,9 @@ for i in range(len(street_list)):
         data = resp.json()
 
         print(f'Street: {street_list[i]} and Driver: {driver_list[j]} has a SS of: {data["score"]}')
+        total_score = total_score + data["score"]
+    
+    print(f'Total SS: {total_score}')
 
 '''
 TODO:
