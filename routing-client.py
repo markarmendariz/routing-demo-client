@@ -36,6 +36,14 @@ def load_drivers(drivers_filename):
 
     return driver_list
 
+# See if driver already assigned
+def is_driver_assigned(assignments, driver):
+    for i in range(len(assignments)):
+        if assignments[i]["driver"] == driver:
+            return True
+
+    return False
+
 # Main
 def main(destination_filename, driver_filename):
     # URL to routing-demo service
@@ -51,9 +59,13 @@ def main(destination_filename, driver_filename):
     print(driver_list)
 
     # Determine the suitability score for each street per driver
+    assignments = []
     for i in range(len(street_list)):
-        total_score = 0
+        destination_dict = {"street": street_list[i], "driver": "", "score": 0}
         for j in range(len(driver_list)):
+            if is_driver_assigned(assignments, driver_list[j]):
+                continue
+
             PARAMS = {
                 'street' :street_list[i],
                 'driver': driver_list[j]
@@ -63,9 +75,25 @@ def main(destination_filename, driver_filename):
             data = resp.json()
 
             print(f'Street: {street_list[i]} and Driver: {driver_list[j]} has a SS of: {data["score"]}')
-            total_score = total_score + data["score"]
-        
-        print(f'Total SS    : {total_score}')
+
+            if destination_dict["score"] < data["score"]:
+                destination_dict["score"] = data["score"]
+                destination_dict["driver"] = driver_list[j]
+
+        assignments.append(destination_dict)
+        print(destination_dict)
+
+    # Print assignmens
+    total_score = 0
+    for i in range(len(assignments)):
+        street = assignments[i]["street"]
+        driver = assignments[i]["driver"]
+        score = assignments[i]["score"]
+        total_score += score
+        print(f'Destination [{street}] is assigned driver [{driver}] with a score of [{score}]')
+    
+    # Print the total suitability score
+    print(f'The suitability score is [{total_score}]')
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
