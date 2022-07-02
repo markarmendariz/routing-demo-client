@@ -9,7 +9,7 @@ if len(sys.argv) < 3:
     print("usage: python3 routing-client.py address.txt drivers.txt")
     exit(1)
 
-# Load street for deliveries
+# Load streets for destinations
 street_list = []
 with open(sys.argv[1], mode='r') as address_file:
     address_reader = csv.DictReader(address_file)
