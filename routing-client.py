@@ -72,7 +72,20 @@ def assign_drivers(street_list, driver_list):
         assignments.append(destination_dict)
         print(destination_dict)
 
-        return assignments
+    return assignments
+
+def print_assignments(assignments):
+    # Print assignments
+    total_score = 0
+    for i in range(len(assignments)):
+        street = assignments[i]["street"]
+        driver = assignments[i]["driver"]
+        score = assignments[i]["score"]
+        total_score += score
+        print(f'Destination [{street}] is assigned driver [{driver}] with a score of [{score}]')
+    
+    # Print the total suitability score
+    print(f'The suitability score is [{total_score}]')
 
 # Main
 def main(destination_filename, driver_filename):
@@ -89,16 +102,7 @@ def main(destination_filename, driver_filename):
     assignments = assign_drivers(street_list, driver_list)
     
     # Print assignments
-    total_score = 0
-    for i in range(len(assignments)):
-        street = assignments[i]["street"]
-        driver = assignments[i]["driver"]
-        score = assignments[i]["score"]
-        total_score += score
-        print(f'Destination [{street}] is assigned driver [{driver}] with a score of [{score}]')
-    
-    # Print the total suitability score
-    print(f'The suitability score is [{total_score}]')
+    print_assignments(assignments)
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
