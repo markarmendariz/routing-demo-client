@@ -44,21 +44,10 @@ def is_driver_assigned(assignments, driver):
 
     return False
 
-# Main
-def main(destination_filename, driver_filename):
+def assign_drivers(street_list, driver_list):
     # URL to routing-demo service
     URL = "http://localhost:8080/calculateSS"
 
-    # Load destinations
-    street_list = load_destinations(sys.argv[1])
-    print(street_list)
-
-    # Load drivers
-    driver_list = load_drivers(sys.argv[2])
-
-    print(driver_list)
-
-    # Determine the suitability score for each street per driver
     assignments = []
     for i in range(len(street_list)):
         destination_dict = {"street": street_list[i], "driver": "", "score": 0}
@@ -83,7 +72,23 @@ def main(destination_filename, driver_filename):
         assignments.append(destination_dict)
         print(destination_dict)
 
-    # Print assignmens
+        return assignments
+
+# Main
+def main(destination_filename, driver_filename):
+    # Load destinations
+    street_list = load_destinations(sys.argv[1])
+    print(street_list)
+
+    # Load drivers
+    driver_list = load_drivers(sys.argv[2])
+
+    print(driver_list)
+
+    # Determine the suitability score for each street per driver
+    assignments = assign_drivers(street_list, driver_list)
+    
+    # Print assignments
     total_score = 0
     for i in range(len(assignments)):
         street = assignments[i]["street"]
