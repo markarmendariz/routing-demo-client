@@ -8,7 +8,7 @@ is the Greedy Algorithm.
 
 A driver with highest suitability score is assigned to a destination. Then that driver cannot be assigned to another destination.
 The next destination is then assigned the driver with the highest suitability score from the list of remaining drivers. This is
-repeated until all drivers are assigned drivers or the list of drivers is exhausted.
+repeated until all destinations are assigned drivers or the list of drivers is exhausted.
 
 ## Requires the following run the application:
 - Python3
