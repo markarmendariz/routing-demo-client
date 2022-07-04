@@ -44,7 +44,7 @@ def is_driver_assigned(assignments, driver):
 
     return False
 
-# Assign drivers using the Greedy Algorithm heuristic. A driver with highest suitability score is
+# Assign drivers using the Greedy Algorithm heuristic. The driver with the highest suitability score is
 # assigned to a destination. Then that driver cannot be assigned to destination. The next destination
 # is then assigned the driver with the highest suitability score from the list of remaining drivers. This is
 # repeated until all destinations are assigned drivers or the list of drivers is exhausted.
