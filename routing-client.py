@@ -86,7 +86,11 @@ def print_assignments(assignments):
         driver = assignments[i]["driver"]
         score = assignments[i]["score"]
         total_score += score
-        print(f'Destination [{street}] is assigned driver [{driver}] with a score of [{score}]')
+
+        if driver != "":
+            print(f'Destination [{street}] is assigned driver [{driver}] with a score of [{score}]')
+        else:
+            print(f'Destination [{street}] has not been assigned a driver!')
     
     # Print the total suitability score
     print(f'The suitability score is [{total_score}]')
