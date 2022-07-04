@@ -1,6 +1,15 @@
 # routing-demo-client
 Python client for routing-demo
 
+# Approach
+Since the vehicle routing problem (VRP) is classified as a HP-hard problem it becomes necessary to use a heuristic
+to implement a solution that will run in a reasonable amount of time as the number of nodes increase. The Heuristic used
+is the Greedy Algorithm.
+
+A driver with highest suitability score is assigned to a destination. Then that driver cannot be assigned to another destination.
+The next destination is then assigned the driver with the highest suitability score from the list of remaining drivers. This is
+repeated until all drivers are assigned drivers or the list of drivers is exhausted.
+
 ## Requires the following run the application:
 - Python3
 - requests module

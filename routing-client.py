@@ -44,6 +44,10 @@ def is_driver_assigned(assignments, driver):
 
     return False
 
+# Assign drivers using the Greedy Algorithm heuristic. A driver with highest suitability score is
+# assigned to a destination. Then that driver cannot be assigned to destination. The next destination
+# is then assigned the driver with the highest suitability score from the list of remaining drivers. This is
+# repeated until all drivers are assigned drivers or the list of drivers is exhausted.
 def assign_drivers(street_list, driver_list):
     # URL to routing-demo service
     URL = "http://localhost:8080/calculateSS"
