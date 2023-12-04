@@ -2,7 +2,7 @@
 Python client for routing-demo
 
 # Approach
-Since the vehicle routing problem (VRP) is classified as a HP-hard problem it becomes necessary to use a heuristic
+Since the vehicle routing problem (VRP) is classified as a NP-hard problem it becomes necessary to use a heuristic
 to implement a solution that will run in a reasonable amount of time as the number of nodes increase. The Heuristic used
 is the Greedy Algorithm.
 
